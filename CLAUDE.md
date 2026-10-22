@@ -13,7 +13,7 @@ Das Hosting gehört exe. Thomas braucht dafür keine Zugänge und keine Passwör
 | `content.js` | Alle Texte, Kontakt, Karten. **Hier wird geändert.** | Ja |
 | `assets/` | Fotos, Logos, QR-Code | Ja, neue Bilder hier ablegen |
 | `index.html` | Das Design. Gleich bei allen exe-Karten. | Nein, nur wenn Thomas ausdrücklich das Design ändern will |
-| `build.mjs`, `vercel.json`, `package.json` | Baut die Seite beim Veröffentlichen | Nein |
+| `build.mjs`, `.github/workflows/pages.yml`, `package.json` | Baut die Seite beim Veröffentlichen | Nein |
 
 ## Befehle (Schrägstrich im Claude-Fenster)
 - `/interview`: Claude fragt Thomas Schritt für Schritt und schreibt die Antworten in `content.js`.
