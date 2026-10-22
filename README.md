@@ -31,3 +31,5 @@ Alles in `content.js` darfst du ändern: Texte, Karten, Reihenfolge, Links. Neue
 - keine Passwörter oder Zugangsdaten in Dateien
 
 Alles Weitere steht in `CLAUDE.md`. Bei Fragen: Maxim.
+
+Stand: 22.10.2026, Veröffentlichen getestet.
