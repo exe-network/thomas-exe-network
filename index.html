@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Maxim M. Chubarov · maxim.exe.network</title>
+<meta name="description" content="Concept artist, creative producer and co-founder of exe.network in Leipzig. Projects: exe.network, RAUM+KLANG, Grapes 3D, Sonic Moves, ZiMMT, Das Gegenteil von Leerstand, Kollektiv WERT.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maxim.exe.network/">
+<meta property="og:title" content="Maxim M. Chubarov">
+<meta property="og:description" content="Concept artist · Creative producer · Co-founder exe.network. Flip the cards.">
+<meta property="og:image" content="https://maxim.exe.network/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<!--
+  Richtung: Roulette #1 "Editorial Brutalism" (Bloomberg Businessweek, Richard Turley 2010 bis 2014).
+
+  FARBHERLEITUNG (3 Schritte: Sampling, Konvergenz, Begruendung)
+  1. Sampling: alle 14 Markenfarben aus content.js in OKLCH gemessen. Belegte Farbtoene (H):
+     9 Sonic-Pink, 70 WERT-Gold, 89 exe-Gelb, 110 ZiMMT-Gelb, 153/164/185/195 Gruen bis Petrol,
+     227 exe-Himmelblau, 277/285/294 Violett (Sonic, Grapes, exe-Lila), 335/351 Pink (exe, GVL).
+     Dazu Maxims Bildwelt: helles Blau der Brille im Portraet, dunkle Raeume, Prismenlicht.
+  2. Konvergenz: Der Rahmen bekommt genau zwei bunte Farben, und zwar in den zwei LEEREN Stellen
+     des Marken-Farbkreises, damit keine Rahmenfarbe mit einer Projektfarbe verwechselt wird:
+     - Hyperlink-Blau  oklch(0.45 0.227 263) = #0140cf  (Luecke 227 bis 277, Farbton der Brille,
+       auf Hyperlink-Chroma gezogen, nur kleine Flaechen: Links und Klick-Bloecke). Weiss darauf 7.97:1.
+     - Signal-Orangerot oklch(0.66 0.21 38) = #f65311  (groesste Luecke 9 bis 70). Nur fuer Zeitkritisches:
+       Event-Band und Einladungen. Immer mit schwarzer Schrift (5.78:1), nie als Textfarbe auf Weiss.
+     Neutrale sind bewusst achromatisch (C = 0), damit keine Tinte gegen sieben Markenfarben arbeitet:
+       L 0.15 #0b0b0b Tinte und 1-px-Linien, L 0.42 #4d4d4d Sekundaertext (8.45:1), L 0.965 #f3f3f3 Flaeche, L 1 #ffffff Papier.
+  3. Begruendung in einem Satz: Schwarz-Weiss ist die Zeitungsseite, Blau ist die Verbindung (Maxim als Knoten,
+     jeder Link ist ein Faden), Orangerot heisst "jetzt", und die sieben Marken leben nur in ihren Bildkaesten.
+
+  SCHRIFT: Archivo (Variable, wdth 62 bis 125, wght bis 900) als Display, schmal-schwarz fuer riesige Headlines,
+  breit fuer kleine Rubriken. Inter nur als Fliesstext 15 bis 16 px. Geist Mono fuer Katalognummern und Metadaten.
+  MOTIV: Die Seite ist ein Inhaltsverzeichnis eines Magazins; jede Karte ist ein Bildkasten mit Bildunterschrift,
+  die Rueckseite ist der Credit-Block ("My role" als Credit-Zeile).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="content.js"></script>
+<style>
+:root{
+  --ink:#0b0b0b; --ink-2:#4d4d4d; --tint:#f3f3f3; --paper:#ffffff;
+  --blue:#0140cf; --signal:#f65311;
+  --g:16px;
+  --f-disp:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.3,.7,.15,1);
+}
+@media (min-width:720px){ :root{ --g:24px; } }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; overflow-x:hidden; }
+/* overflow-x:clip statt hidden: hidden auf body (mit html overflow) macht body zum Scroll-Container und bricht position:sticky */
+body{ margin:0; background:var(--paper); color:var(--ink); font:400 16px/1.5 var(--f-body); padding-inline:var(--g); overflow-x:clip; }
+img{ max-width:100%; display:block; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+a{ color:var(--blue); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+:focus-visible{ outline:3px solid var(--blue); outline-offset:2px; }
+.mono{ font-family:var(--f-mono); }
+.nw{ white-space:nowrap; }
+.rub{ font-family:var(--f-disp); font-stretch:118%; font-weight:700; font-size:12px; letter-spacing:.07em; text-transform:uppercase; }
+.bleed{ margin-inline:calc(-1 * var(--g)); padding-inline:var(--g); }
+
+/* ---------- Kopfleiste ---------- */
+/* Kopfleiste bleibt beim Scrollen oben (volle Breite, damit an den Raendern nichts durchscheint) */
+.top{ display:flex; align-items:stretch; min-height:48px; border-bottom:1px solid var(--ink); position:sticky; top:0; z-index:30; background:var(--paper); margin-inline:calc(-1 * var(--g)); padding-inline:var(--g); }
+.top .dom{ display:flex; align-items:center; margin-right:auto; font:500 13px var(--f-mono); letter-spacing:-.01em; }
+.top .loc{ display:none; align-items:center; padding-inline:16px; font:500 13px var(--f-mono); color:var(--ink-2); border-left:1px solid var(--ink); }
+.seg{ display:flex; }
+.seg button, .top .tb{ min-width:46px; min-height:48px; padding-inline:10px; border-left:1px solid var(--ink); font:800 13px var(--f-disp); font-stretch:118%; letter-spacing:.05em; }
+.seg button[aria-pressed="true"]{ background:var(--ink); color:var(--paper); }
+.top .tb{ border-right:0; }
+.top .tb:hover, .seg button:hover{ background:var(--tint); }
+.seg button[aria-pressed="true"]:hover{ background:var(--ink); }
+@media (min-width:720px){ .top .loc{ display:flex; } }
+
+/* ---------- Event-Band ---------- */
+.event{ background:var(--signal); color:var(--ink); border-bottom:1px solid var(--ink); display:grid; grid-template-columns:1fr auto; column-gap:12px; padding-block:12px 14px; }
+.ev-name{ font:900 34px/0.88 var(--f-disp); font-stretch:80%; letter-spacing:-.01em; grid-column:1/-1; margin:0; white-space:nowrap; }
+.ev-place{ font:600 14px/1.3 var(--f-disp); margin:10px 0 0; }
+.ev-dates{ font:500 14px/1.3 var(--f-mono); margin:10px 0 0; text-align:right; white-space:nowrap; }
+.ev-note{ grid-column:1/-1; font:700 17px/1.3 var(--f-disp); margin:10px 0 0; padding-top:10px; border-top:1px solid var(--ink); text-wrap:pretty; }
+@media (min-width:1100px){
+  .event{ grid-template-columns:repeat(12,1fr); column-gap:0; padding-block:0; align-items:stretch; }
+  .event > *{ margin:0; padding:14px 16px; border-left:1px solid var(--ink); }
+  .ev-name{ grid-column:1/6; border-left:0; padding-left:0; font-size:60px; display:flex; align-items:center; }
+  .ev-place{ grid-column:6/8; display:flex; align-items:center; font-size:15px; }
+  .ev-dates{ grid-column:8/10; display:flex; align-items:center; text-align:left; font-size:15px; }
+  .ev-note{ grid-column:10/13; border-top:0; display:flex; align-items:center; font-size:18px; }
+}
+
+/* ---------- Name ---------- */
+.name{ margin:10px 0 0; font-family:var(--f-disp); font-weight:900; font-stretch:72%; line-height:.8; letter-spacing:-.012em; padding-bottom:10px; border-bottom:1px solid var(--ink); }
+.name .nl{ display:block; white-space:nowrap; }
+.name .nl + .nl{ margin-top:.04em; }
+@media (min-width:1100px){
+  .name{ font-stretch:84%; margin-top:14px; padding-bottom:14px; }
+  .name .nl{ display:inline; }
+  .name .fitline{ display:block; white-space:nowrap; }
+}
+
+/* ---------- Hero-Raster ---------- */
+.hero{ display:grid; grid-template-columns:40% 1fr; border-bottom:1px solid var(--ink); }
+.portrait{ margin:0; grid-column:1; grid-row:1; border-right:1px solid var(--ink); position:relative; background:var(--tint); }
+.portrait img{ width:100%; height:100%; aspect-ratio:1/1.08; object-fit:cover; object-position:50% 28%; }
+.portrait figcaption{ position:absolute; left:0; bottom:0; background:var(--paper); border-top:1px solid var(--ink); border-right:1px solid var(--ink); padding:3px 6px; font:500 12px var(--f-mono); }
+.hero-meta{ grid-column:2; grid-row:1; padding:10px 0 12px 12px; display:flex; flex-direction:column; gap:10px; }
+.hero-role{ font:800 19px/1.12 var(--f-disp); font-stretch:92%; margin:0; text-wrap:balance; }
+.hero-web{ align-self:flex-start; font:800 16px/1.2 var(--f-disp); text-decoration-thickness:2px; }
+.hero-loc{ font:500 12px var(--f-mono); color:var(--ink-2); margin:auto 0 0; padding-top:8px; border-top:1px solid var(--ink); }
+.hero-intro{ grid-column:1/-1; margin:0; padding:14px 0 16px; border-top:1px solid var(--ink); font-size:16px; line-height:1.5; text-wrap:pretty; }
+.hero-intro .lead{ display:block; font:900 27px/1.02 var(--f-disp); font-stretch:82%; letter-spacing:-.01em; margin-bottom:10px; text-wrap:balance; }
+.actions{ grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--ink); }
+.btn{ min-height:54px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 14px; font:800 16px var(--f-disp); text-decoration:none; }
+.btn .sm{ font:500 12px var(--f-mono); }
+.btn-blue{ background:var(--blue); color:#fff; grid-column:1/-1; }
+.btn-blue:hover{ background:var(--ink); }
+.actions .btn + .btn{ border-top:1px solid var(--ink); }
+.actions .btn:nth-child(3){ border-left:1px solid var(--ink); }
+.actions .btn:not(.btn-blue):hover{ background:var(--tint); }
+
+/* Inhaltsverzeichnis */
+.index{ grid-column:1/-1; border-top:4px solid var(--ink); }
+.idx-head{ display:flex; justify-content:space-between; align-items:baseline; padding:10px 0 8px; border-bottom:1px solid var(--ink); }
+.idx-head .count{ font:500 12px var(--f-mono); }
+.index ol{ list-style:none; margin:0; padding:0; }
+.index li + li{ border-top:1px solid var(--ink); }
+.index button{ width:100%; text-align:left; display:grid; grid-template-columns:40px 1fr auto; column-gap:8px; align-items:baseline; padding:9px 0; min-height:48px; }
+.index button:hover{ background:var(--tint); }
+.ix-n{ font:900 20px/1 var(--f-disp); font-stretch:80%; grid-row:1/3; }
+.ix-t{ font:800 16px/1.2 var(--f-disp); }
+.ix-k{ font:500 12px var(--f-mono); color:var(--ink-2); text-align:right; }
+.ix-r{ grid-column:2/4; font-size:14px; line-height:1.35; color:var(--ink-2); margin-top:2px; }
+.ix-inv{ display:inline-block; background:var(--signal); color:var(--ink); font:700 11px var(--f-disp); font-stretch:118%; letter-spacing:.06em; text-transform:uppercase; padding:1px 5px; margin-left:6px; vertical-align:2px; }
+
+@media (min-width:720px){
+  .hero{ grid-template-columns:repeat(12,1fr); }
+  .portrait{ grid-column:1/5; grid-row:1/4; }
+  .hero-meta{ grid-column:5/13; grid-row:1; padding:14px 0 14px 16px; }
+  .hero-intro{ grid-column:5/13; grid-row:2; padding-left:16px; }
+  .actions{ grid-column:5/13; grid-row:3; margin-left:16px; border-left:1px solid var(--ink); border-right:1px solid var(--ink); align-self:end; }
+  .index{ grid-column:1/-1; grid-row:4; }
+}
+@media (min-width:1100px){
+  .portrait{ grid-column:1/4; }
+  .hero-meta{ grid-column:4/9; }
+  .hero-intro{ grid-column:4/9; }
+  .actions{ grid-column:4/9; grid-template-columns:2fr 1fr 1fr; border-bottom:0; }
+  .actions .btn-blue{ grid-column:auto; }
+  .actions .btn + .btn{ border-top:0; border-left:1px solid var(--ink); }
+  .hero-role{ font-size:26px; }
+  .hero-intro{ font-size:17px; }
+  .hero-intro .lead{ font-size:40px; }
+  .index{ grid-column:9/13; grid-row:1/4; border-top:0; border-left:1px solid var(--ink); padding-left:16px; margin-left:16px; }
+  .idx-head{ padding-top:14px; }
+}
+
+/* Kopfbereich ohne Inhaltsverzeichnis (Standard): Desktop nutzt die freie rechte Spalte */
+@media (min-width:1100px){
+  .hero.no-index .portrait{ grid-column:1/5; }
+  .hero.no-index .hero-meta, .hero.no-index .hero-intro{ grid-column:5/13; }
+  .hero.no-index .hero-intro{ max-width:64ch; }
+  .hero.no-index .actions{ grid-column:5/11; }
+}
+
+/* ---------- Projekte ---------- */
+.sec-head{ display:grid; grid-template-columns:1fr auto; align-items:end; column-gap:12px; padding:28px 0 16px; border-bottom:1px solid var(--ink); }
+.hl{ font:900 clamp(58px,17vw,176px)/.82 var(--f-disp); font-stretch:74%; letter-spacing:-.015em; margin:0; text-wrap:balance; }
+.sec-head .count{ font:900 clamp(58px,17vw,176px)/.82 var(--f-disp); font-stretch:74%; color:var(--ink); -webkit-text-stroke:0; }
+.sec-hint{ grid-column:1/-1; margin:14px 0 0; font-size:15px; line-height:1.4; color:var(--ink-2); }
+.sec-hint .rub{ display:block; margin-bottom:4px; color:var(--ink); }
+.sec-head .hl{ grid-row:1; grid-column:1; }
+.sec-head .count{ grid-row:1; grid-column:-2 / -1; }
+@media (min-width:1100px){
+  .sec-head{ grid-template-columns:auto 1fr auto; column-gap:28px; padding:44px 0 30px; }
+  .sec-hint{ grid-column:2; grid-row:1; margin:0 0 8px; max-width:34ch; display:block; }
+  .sec-hint .rub{ display:block; margin-bottom:4px; }
+}
+
+/* Jede Karte ist ein eigenes Objekt: Abstand + eigener 2-px-Rahmen (statt geteilter Rasterlinien). */
+.grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:16px; margin-top:18px; }
+@media (min-width:1100px){ .grid{ gap:24px; } }
+.card{ grid-column:span 12; display:grid; perspective:1800px; min-width:0; touch-action:pan-y; }
+/* Wisch-zum-Teilen: Karte folgt dem Finger seitlich, fliegt raus, Teilen-Menue oeffnet sich */
+.card.swiping{ user-select:none; -webkit-user-select:none; z-index:5; }
+.card.fly{ transition:transform .34s cubic-bezier(.2,.7,.2,1), opacity .34s linear; z-index:5; }
+/* Flip: symmetrische Kurve, damit 90 Grad genau bei der halben Zeit liegt. Dort wird die abgewandte
+   Seite per visibility ausgeblendet. Safari/WebKit ignoriert backface-visibility bei dieser Struktur
+   (Rueckseite schien gespiegelt durch), visibility wirkt in jedem Browser. */
+.inner{ display:grid; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.45,.05,.55,.95); min-width:0; }
+.card.is-flipped .inner{ transform:rotateY(180deg); }
+.face{ grid-area:1/1; position:relative; display:flex; flex-direction:column; min-width:0; background:var(--paper); border:2px solid var(--ink); -webkit-backface-visibility:hidden; backface-visibility:hidden; visibility:visible; transition:visibility 0s linear .3s; }
+.face.back{ transform:rotateY(180deg); visibility:hidden; }
+.card.is-flipped .face.front{ visibility:hidden; }
+.card.is-flipped .face.back{ visibility:visible; }
+/* Eindrehen beim Scrollen: Winkel setzt turnCards() im Skript direkt auf .card (nie ueber 90 Grad). */
+.flip-hit{ position:absolute; inset:0; z-index:1; width:100%; }
+.flip-hit:focus-visible{ outline:3px solid var(--blue); outline-offset:-3px; }
+.face > :not(.flip-hit){ position:relative; z-index:2; pointer-events:none; }
+.face a, .face .nobubble{ pointer-events:auto; }
+.card:has(.flip-hit:focus-visible){ outline:3px solid var(--blue); outline-offset:-1px; z-index:3; }
+@media (prefers-reduced-motion:reduce){
+  .inner{ transform:none !important; transition:none; }
+  .face{ -webkit-backface-visibility:visible; backface-visibility:visible; transition:opacity .28s linear, visibility .28s linear; }
+  .face.back{ transform:none; opacity:0; visibility:hidden; }
+  .card.is-flipped .face.back{ opacity:1; visibility:visible; }
+  .card.is-flipped .face.front{ opacity:0; visibility:hidden; }
+}
+
+.c-meta{ display:flex; align-items:center; gap:10px; min-height:42px; padding:0 12px; border-bottom:1px solid var(--ink); }
+.c-no{ font:900 20px/1 var(--f-disp); font-stretch:80%; }
+.c-kind{ color:var(--ink-2); }
+.c-flip{ margin-left:auto; display:inline-flex; align-items:center; gap:6px; font:500 12px var(--f-mono); padding:4px 7px; border:1px solid currentColor; }
+.c-flip svg{ width:12px; height:12px; }
+.front .c-flip{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.card:hover .front .c-flip{ background:var(--blue); border-color:var(--blue); color:#fff; }
+
+.plate{ flex:1 1 auto; min-height:200px; background:var(--b-bg); border-bottom:1px solid var(--ink); overflow:hidden; }
+.plate .logo{ position:absolute; inset:13% 12%; width:76%; height:74%; object-fit:contain; }
+.plate .logo.key{ inset:7%; width:86%; height:86%; }
+.plate .photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.plate .photo.contain{ object-fit:contain; object-position:100% 60%; inset:6% 4% 4%; width:92%; height:90%; }
+.plate .tag{ position:absolute; left:0; bottom:0; width:clamp(84px,27%,176px); aspect-ratio:1; background:#fff; border-top:1px solid var(--ink); border-right:1px solid var(--ink); padding:6px; }
+.plate .tag img{ width:100%; height:100%; object-fit:contain; }
+.plate-type{ display:flex; align-items:flex-end; padding:14px 12px; color:var(--b-fg); }
+.plate-type span{ display:block; max-width:100%; font:900 clamp(48px,15vw,104px)/.84 var(--f-disp); font-stretch:74%; letter-spacing:-.02em; overflow-wrap:normal; }
+.plate-quote{ display:flex; flex-direction:column; justify-content:center; gap:12px; padding:18px 14px; color:var(--b-fg); }
+.plate-quote blockquote{ margin:0; font:800 clamp(22px,6vw,38px)/1.08 var(--f-disp); font-stretch:88%; letter-spacing:-.01em; text-wrap:balance; }
+.plate-quote blockquote::before{ content:"\201E"; }
+.plate-quote blockquote::after{ content:"\201C"; }
+html[lang="en"] .plate-quote blockquote::before{ content:"\201C"; }
+html[lang="en"] .plate-quote blockquote::after{ content:"\201D"; }
+.plate-quote cite{ font:500 12px var(--f-mono); font-style:normal; opacity:.8; }
+.b-embed{ display:block; width:100%; height:166px; border:1px solid var(--ink); pointer-events:auto; }
+.plate .credit{ position:absolute; right:0; bottom:0; background:rgba(11,11,11,.72); color:#fff; font:500 11px/1.2 var(--f-mono); padding:4px 7px; }
+
+.inv{ background:var(--signal); color:var(--ink); border-bottom:1px solid var(--ink); padding:10px 12px 12px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 14px; }
+.inv .rub{ font-size:12px; }
+.inv .d{ font:500 13px var(--f-mono); }
+.inv .cta{ flex-basis:100%; font:900 23px/1.05 var(--f-disp); font-stretch:86%; margin-top:4px; }
+
+.c-body{ padding:12px 12px 16px; }
+.c-kicker{ margin:0 0 8px; font:600 13px/1.3 var(--f-disp); color:var(--ink-2); }
+.c-name{ margin:0; font:900 clamp(40px,12vw,62px)/.86 var(--f-disp); font-stretch:82%; letter-spacing:-.018em; text-wrap:balance; overflow-wrap:normal; }
+.c-tag{ margin:10px 0 0; font:700 19px/1.2 var(--f-disp); text-wrap:balance; }
+.c-date{ margin:8px 0 0; font:500 13px var(--f-mono); }
+
+.b-band{ display:flex; align-items:center; gap:10px; min-height:44px; padding:0 12px; background:var(--b-bg); color:var(--b-fg); border-bottom:1px solid var(--ink); }
+.b-name{ font:800 15px/1.1 var(--f-disp); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.b-chip{ width:12px; height:12px; flex:none; background:var(--b-ac); }
+.b-band .c-flip{ border-color:currentColor; }
+.b-body{ flex:1 1 auto; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr; row-gap:18px; padding:14px 12px 16px; }
+.b-body.two{ grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); grid-template-rows:1fr; column-gap:24px; }
+.b-body.two .b-role{ font-size:26px; }
+.b-body.two .b-text{ font-size:16.5px; }
+.b-a, .b-b{ display:flex; flex-direction:column; gap:12px; min-width:0; }
+.b-b{ justify-content:flex-start; }
+.b-body.two .b-b{ justify-content:flex-end; }
+.b-label{ margin:0; }
+.b-role{ margin:-6px 0 0; font:800 24px/1.1 var(--f-disp); font-stretch:92%; text-wrap:balance; padding-bottom:12px; border-bottom:1px solid var(--ink); }
+.b-text{ margin:0; font-size:15px; line-height:1.5; text-wrap:pretty; }
+.facts{ list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); font:500 12.5px/1.2 var(--f-mono); }
+.facts li{ display:flex; justify-content:space-between; gap:8px; padding:5px 0; border-bottom:1px solid var(--ink); }
+.facts li span:last-child{ color:var(--ink-2); }
+.b-links{ list-style:none; margin:0; padding:0; }
+.b-links a{ display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:46px; border-top:1px solid var(--ink); font:500 15px/1.2 var(--f-body); }
+.b-links li:last-child a{ border-bottom:1px solid var(--ink); }
+.b-links a .ar{ font:500 14px var(--f-mono); text-decoration:none; }
+.b-links a:hover{ background:var(--tint); }
+.b-links a.primary{ background:var(--blue); color:#fff; text-decoration:none; font:800 17px/1.15 var(--f-disp); padding:0 12px; min-height:52px; border-top:0; }
+.b-links a.primary:hover{ background:var(--ink); }
+.b-links a.primary.sig{ background:var(--signal); color:var(--ink); }
+.b-links a.primary.sig:hover{ background:var(--ink); color:var(--signal); }
+
+/* ---------- Kontakt ---------- */
+.contact{ background:var(--ink); color:#fff; margin-top:36px; padding-block:26px 20px; }
+.contact .hl{ color:#fff; margin-bottom:.1em; }
+.contact a{ color:#fff; }
+.c-sub{ font:700 19px/1.3 var(--f-disp); margin:14px 0 18px; max-width:30ch; text-wrap:balance; }
+.c-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#fff; border:1px solid #fff; }
+.cell{ background:var(--ink); color:#fff; min-height:86px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; text-align:left; text-decoration:none; min-width:0; }
+.cell .cl{ font:800 21px/1 var(--f-disp); font-stretch:92%; }
+.cell .cv{ font:500 12.5px/1.25 var(--f-mono); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.cell:hover{ background:var(--blue); }
+.cell:focus-visible{ outline:3px solid #fff; outline-offset:-5px; }
+.cell.save{ grid-column:1/-1; background:var(--blue); min-height:96px; }
+.cell.save .cl{ font-size:30px; }
+.cell.save:hover{ background:#fff; color:var(--ink); }
+.c-qr{ display:none; }
+.colo{ display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:22px; padding-top:12px; border-top:1px solid #fff; font:500 12px var(--f-mono); }
+@media (min-width:1100px){
+  .contact{ display:grid; grid-template-columns:repeat(12,1fr); column-gap:0; padding-block:40px 24px; margin-top:56px; }
+  .contact .hl{ grid-column:1/-1; font-size:176px; }
+  .c-side{ grid-column:1/5; padding-right:24px; display:flex; flex-direction:column; }
+  .c-grid{ grid-column:5/13; grid-template-columns:repeat(3,1fr); align-self:start; margin-top:18px; }
+  .cell.save{ grid-column:span 1; grid-row:span 2; min-height:0; }
+  .cell{ min-height:108px; }
+  .cell.save .cl{ font-size:38px; }
+  .c-qr{ display:flex; gap:14px; align-items:flex-end; margin-top:auto; }
+  .c-qr img{ width:132px; height:132px; background:#fff; padding:8px; }
+  .c-qr p{ margin:0; font:500 12px/1.4 var(--f-mono); max-width:18ch; }
+  .colo{ grid-column:1/-1; }
+}
+
+/* ---------- QR-Overlay + Toast ---------- */
+dialog.qr{ position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:24px var(--g); border:0; background:#fff; color:var(--ink); }
+dialog.qr[open]{ display:grid; grid-template-rows:auto 1fr auto; justify-items:center; align-items:center; }
+dialog.qr::backdrop{ background:#fff; }
+.qr-top{ width:100%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--ink); padding-bottom:10px; }
+.qr-top b{ font:900 22px/1 var(--f-disp); font-stretch:80%; }
+.qr-close{ min-height:48px; min-width:48px; padding:0 14px; border:1px solid var(--ink); font:800 14px var(--f-disp); }
+.qr-img{ width:min(84vw,60vh); height:auto; image-rendering:pixelated; }
+.qr-cap{ text-align:center; margin:0; font:800 20px/1.2 var(--f-disp); }
+.qr-cap span{ display:block; font:500 13px var(--f-mono); color:var(--ink-2); margin-top:6px; }
+.toast{ position:fixed; left:50%; bottom:20px; transform:translate(-50%,20px); background:var(--ink); color:#fff; font:500 13px var(--f-mono); padding:12px 16px; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:20; }
+.toast.on{ opacity:1; transform:translate(-50%,0); }
+.share-prompt{ position:fixed; left:50%; bottom:calc(16px + env(safe-area-inset-bottom)); transform:translate(-50%,160%); z-index:40; min-height:54px; padding:0 22px; border:0; background:var(--blue); color:#fff; font:800 17px var(--f-disp); white-space:nowrap; cursor:pointer; transition:transform .25s var(--ease); }
+.share-prompt.on{ transform:translate(-50%,0); }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<dialog class="qr" aria-labelledby="qr-title"></dialog>
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+/* Teil 1: Daten, Sprache, Markup. Alles kommt aus window.CARD (content.js). */
+(function(){
+'use strict';
+var C = window.CARD;
+var app = document.getElementById('app');
+if (!C || !app) return;
+var LS_KEY = 'exe-card-lang';
+var QR_SRC = (C.person && C.person.qr) || 'assets/qr.svg';
+
+/* Ergaenzte Rahmen-Labels (keine Inhalte). ui aus content.js hat Vorrang. */
+var L = {
+  contents:{en:'Contents',de:'Inhalt'},
+  projects:{en:'Projects',de:'Projekte'},
+  hint:{en:'Tap to flip. Swipe sideways to share.',de:'Tippen zum Umdrehen. Zur Seite wischen zum Teilen.'},
+  invitation:{en:'Invitation',de:'Einladung'},
+  close:{en:'Close',de:'Schließen'},
+  langName:{en:'Language',de:'Sprache'},
+  metAt:{en:'Met at',de:'Kennengelernt bei'},
+  website:{en:'Website',de:'Website'},
+  kinds:{home:{en:'Home',de:'Heimat'},event:{en:'Event',de:'Event'},product:{en:'Product',de:'Produkt'},app:{en:'App',de:'App'},place:{en:'Place',de:'Ort'},space:{en:'Space',de:'Raum'},art:{en:'Art',de:'Kunst'},interview:{en:'Interview',de:'Interview'},workshop:{en:'Workshops',de:'Workshops'}}
+};
+
+var lang = 'en';
+try {
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q === 'de' || q === 'en') lang = q;
+  else { var s = localStorage.getItem(LS_KEY); if (s === 'de' || s === 'en') lang = s; }
+} catch (e) {}
+
+function t(v){ if (v == null) return ''; if (typeof v === 'string') return v; return v[lang] != null ? v[lang] : (v.en != null ? v.en : ''); }
+function ui(k){ return t((C.ui && C.ui[k]) || L[k]); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(ch){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
+/* Woerter mit Bindestrich ("Co-founder") nie am Bindestrich umbrechen. */
+function nw(s){ return esc(s).replace(/(\S*\w-\w\S*)/g, '<span class="nw">$1</span>').replace(/ · /g, '&nbsp;· '); }
+function pad2(n){ return String(n).padStart(2, '0'); }
+function kindLabel(k){ return L.kinds[k] ? t(L.kinds[k]) : (k || ''); }
+function isWide(c){ return c.kind === 'home' || !!c.invite || !!c.image; }
+
+function eventActive(){
+  var ev = C.event; if (!ev || !ev.name) return false; if (!ev.until) return true;
+  var d = new Date(); var iso = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  return iso <= ev.until;
+}
+function isDark(hex){
+  var h = String(hex || '#ffffff').replace('#', ''); if (h.length === 3) h = h.replace(/./g, '$&$&'); if (h.length < 6) return false;
+  var lin = [0, 2, 4].map(function(i){ var c = parseInt(h.substr(i, 2), 16) / 255; return c <= .04045 ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4); });
+  return (0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]) < 0.18;
+}
+/* Erste kurze Saetze des Intros werden zur fetten Unterzeile (Magazin-"Deck"). */
+function splitLead(s){
+  s = String(s || ''); var re = /[.!?](\s+|$)/g, m, end = 0;
+  while ((m = re.exec(s))) { var e = m.index + 1; if (e > 56) break; end = e; }
+  if (!end || end >= s.trim().length) return ['', s];
+  return [s.slice(0, end), s.slice(end).trim()];
+}
+function slug(){
+  var p = C.person.name.trim().split(/\s+/); var parts = p.length > 1 ? [p[0], p[p.length - 1]] : p;
+  return parts.join('-').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9-]/g, '');
+}
+
+var ICON_FLIP = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4h8M7.2 1.6 9.6 4 7.2 6.4M10.5 8h-8M4.8 5.6 2.4 8l2.4 2.4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>';
+
+function plate(c){
+  var name = esc(c.name), dark = isDark(c.brand && c.brand.bg);
+  var logo = dark && c.logoOnDark ? c.logoOnDark : c.logo;
+  /* Zitat-Flaeche (z. B. Interview) hat Vorrang vor Bild/Logo */
+  if (c.quote) return '<div class="plate plate-quote"><blockquote>' + esc(t(c.quote)) + '</blockquote>' + (c.quoteBy ? '<cite>' + esc(t(c.quoteBy)) + '</cite>' : '') + '</div>';
+  if (c.image) {
+    return '<div class="plate"><img class="photo' + (dark || c.imageFit === 'cover' ? '' : ' contain') + '" src="' + esc(c.image) + '" alt="' + name + ', ' + esc(t(c.kicker)) + '" loading="lazy" decoding="async">' +
+      (c.logo ? '<span class="tag"><img src="' + esc(c.logo) + '" alt="' + name + ' Logo" loading="lazy" decoding="async"></span>' : '') +
+      (c.imageCredit ? '<span class="credit">' + esc(t(c.imageCredit)) + '</span>' : '') + '</div>';
+  }
+  /* Karte ohne Logo und Bild: grosse Typo-Flaeche statt leerem Kasten */
+  if (!logo) return '<div class="plate plate-type"><span>' + esc(t(c.plateText) || c.short || c.name) + '</span></div>';
+  var key = /\.(jpe?g|webp)$/i.test(logo || '');
+  return '<div class="plate">' + (logo ? '<img class="logo' + (key ? ' key' : '') + '" src="' + esc(logo) + '" alt="' + name + ' Logo" loading="lazy" decoding="async">' : '') + '</div>';
+}
+
+function cardHTML(c, i){
+  var no = pad2(i + 1), b = c.brand || {};
+  var style = '--b-bg:' + esc(b.bg || '#ffffff') + ';--b-fg:' + esc(b.fg || '#0b0b0b') + ';--b-ac:' + esc(b.accent || b.fg || '#0b0b0b');
+  var inv = c.invite ? '<div class="inv"><span class="rub">' + esc(t(L.invitation)) + '</span><span class="d">' + esc(t(c.date)) + '</span>' +
+    (c.cta ? '<span class="cta">' + esc(t(c.cta)) + ' <span aria-hidden="true">&rarr;</span></span>' : '') + '</div>' : '';
+  var date = (!c.invite && c.date) ? '<p class="c-date">' + esc(t(c.date)) + '</p>' : '';
+  var facts = (Array.isArray(c.facts) && c.facts.length) ? '<ol class="facts">' + c.facts.map(function(f){
+    var m = String(f).match(/^(.*?)\s+(\d{4})$/);
+    return m ? '<li><span>' + esc(m[1]) + '</span><span>' + m[2] + '</span></li>' : '<li><span>' + esc(f) + '</span></li>';
+  }).join('') + '</ol>' : '';
+  var links = (c.links || []).slice().sort(function(a, z){ return (z.primary ? 1 : 0) - (a.primary ? 1 : 0); }).map(function(l){
+    var mail = /^mailto:/i.test(l.url);
+    var cls = l.primary ? ('primary' + (c.invite ? ' sig' : '')) : '';
+    return '<li><a class="' + cls + '" href="' + esc(l.url) + '"' + (mail ? '' : ' target="_blank" rel="noopener"') + '><span>' + esc(t(l.label)) + '</span><span class="ar" aria-hidden="true">' + (mail ? '@' : '&nearr;') + '</span></a></li>';
+  }).join('');
+  return '<article class="card" id="card-' + esc(c.id) + '" data-id="' + esc(c.id) + '" data-wide="' + (isWide(c) ? 1 : 0) + '" style="' + style + '"><div class="inner">' +
+    '<div class="face front">' +
+      '<button class="flip-hit" type="button" aria-pressed="false" aria-label="' + esc(ui('flip')) + ': ' + esc(c.name) + '"></button>' +
+      '<div class="c-meta"><span class="c-no">' + no + '</span><span class="rub c-kind">' + esc(kindLabel(c.kind)) + '</span><span class="c-flip">' + esc(ui('flip')) + ICON_FLIP + '</span></div>' +
+      plate(c) + inv +
+      '<div class="c-body"><p class="c-kicker">' + esc(t(c.kicker)) + '</p><h3 class="c-name">' + esc(c.name) + '</h3>' +
+        (c.tagline ? '<p class="c-tag">' + esc(t(c.tagline)) + '</p>' : '') + date + '</div>' +
+    '</div>' +
+    '<div class="face back" inert>' +
+      '<button class="flip-hit" type="button" aria-pressed="false" aria-label="' + esc(ui('back')) + ': ' + esc(c.name) + '"></button>' +
+      '<div class="b-band"><span class="c-no">' + no + '</span><span class="b-chip" aria-hidden="true"></span><span class="b-name">' + esc(c.short || c.name) + '</span><span class="c-flip">' + esc(ui('back')) + ICON_FLIP + '</span></div>' +
+      '<div class="b-body"><div class="b-a">' +
+        (c.role ? '<p class="rub b-label">' + esc(ui('myRole')) + '</p><p class="b-role">' + nw(t(c.role)) + '</p>' : '') +
+        (c.text ? '<p class="b-text">' + esc(t(c.text)) + '</p>' : '') +
+        (c.embed ? '<iframe class="b-embed" style="height:' + (parseInt(c.embedHeight, 10) || 166) + 'px" src="' + esc(c.embed) + '" loading="lazy" title="' + esc(c.name) + '" allow="autoplay; encrypted-media"></iframe>' : '') +
+      '</div><div class="b-b">' + facts + (links ? '<ul class="b-links">' + links + '</ul>' : '') + '</div></div>' +
+    '</div>' +
+  '</div></article>';
+}
+
+function heroHTML(){
+  var p = C.person, ev = C.event;
+  var words = p.name.toUpperCase().split(/\s+/), last = words.pop(), first = words.join(' ');
+  var sp = splitLead(t(p.intro));
+  var idx = C.cards.map(function(c, i){
+    return '<li><button type="button" data-go="' + esc(c.id) + '"><span class="ix-n">' + pad2(i + 1) + '</span><span class="ix-t">' + esc(c.name) +
+      (c.invite ? '<span class="ix-inv">' + esc(t(L.invitation)) + '</span>' : '') + '</span><span class="ix-k">' + esc(kindLabel(c.kind)) + '</span><span class="ix-r">' + nw(t(c.role)) + '</span></button></li>';
+  }).join('');
+  return '<header class="top"><span class="dom">' + esc(p.domain) + '</span>' +
+      '<div class="seg" role="group" aria-label="' + esc(t(L.langName)) + '"><button type="button" data-lang="en" aria-pressed="' + (lang === 'en') + '">EN</button><button type="button" data-lang="de" aria-pressed="' + (lang === 'de') + '">DE</button></div>' +
+      '<button type="button" class="tb" data-action="qr" aria-label="' + esc(ui('showQr')) + '">QR</button></header>' +
+    (eventActive() ? '<section class="event bleed" aria-label="' + esc(ev.name) + '"><p class="ev-name">' + esc(ev.name) + '</p><p class="ev-place">' + esc(ev.place) + '</p><p class="ev-dates">' + esc(ev.dates) + '</p><p class="ev-note">' + esc(t(ev.note)) + '</p></section>' : '') +
+    '<h1 class="name"><span class="fitline">' + (first ? '<span class="nl">' + esc(first) + '</span> ' : '') + '<span class="nl">' + esc(last) + '</span></span></h1>' +
+    '<section class="hero' + (C.showIndex ? '' : ' no-index') + '" aria-label="' + esc(p.name) + '">' +
+      '<figure class="portrait"><img src="' + esc(p.portrait) + '" alt="' + esc(p.name) + '" fetchpriority="high"></figure>' +
+      '<div class="hero-meta"><p class="hero-role">' + nw(t(p.role)) + '</p>' +
+        (C.contact && C.contact.website ? '<a class="hero-web" href="' + esc(C.contact.website) + '" target="_blank" rel="noopener">' + esc(C.contact.website.replace(/^https?:\/\//, '').replace(/\/$/, '')) + ' <span aria-hidden="true">&nearr;</span></a>' : '') +
+        '<p class="hero-loc">' + esc(t(p.location)) + '</p></div>' +
+      '<p class="hero-intro">' + (sp[0] ? '<span class="lead">' + esc(sp[0]) + '</span>' : '') + esc(sp[1]) + '</p>' +
+      '<div class="actions">' +
+        '<button type="button" class="btn btn-blue" data-action="save"><span>' + esc(ui('save')) + '</span><span class="sm">.vcf &darr;</span></button>' +
+        '<button type="button" class="btn" data-action="share"><span>' + esc(ui('share')) + '</span><span class="sm" aria-hidden="true">&nearr;</span></button>' +
+        '<button type="button" class="btn" data-action="qr"><span>' + esc(ui('showQr')) + '</span><span class="sm" aria-hidden="true">QR</span></button>' +
+      '</div>' +
+      /* Inhaltsverzeichnis nur mit showIndex:true in content.js (seit 15.09.2026 standardmaessig aus, Wunsch von Denny/Maxim) */
+      (C.showIndex ? '<nav class="index" aria-label="' + esc(t(L.contents)) + '"><div class="idx-head"><span class="rub">' + esc(t(L.contents)) + '</span><span class="count">' + pad2(C.cards.length) + '</span></div><ol>' + idx + '</ol></nav>' : '') +
+    '</section>';
+}
+
+function projectsHTML(){
+  return '<section class="projects" aria-labelledby="proj-h"><div class="sec-head"><h2 class="hl" id="proj-h">' + esc(t(L.projects)) + '</h2>' +
+    '<p class="sec-hint"><span class="rub">' + esc(ui('flip')) + '</span> ' + esc(t(L.hint)) + '</p><span class="count" aria-hidden="true">' + pad2(C.cards.length) + '</span></div>' +
+    '<div class="grid">' + C.cards.map(cardHTML).join('') + '</div></section>';
+}
+
+function cellA(href, label, value, ext){
+  return '<a class="cell" href="' + esc(href) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '><span class="cl">' + esc(label) + '</span><span class="cv">' + esc(value) + '</span></a>';
+}
+function contactHTML(){
+  var p = C.person, c = C.contact || {}, cells = [];
+  cells.push('<button type="button" class="cell save" data-action="save"><span class="cl">' + esc(ui('save')) + '</span><span class="cv">' + esc(slug()) + '.vcf</span></button>');
+  if (c.phone) cells.push(cellA('tel:' + c.phone.replace(/[^\d+]/g, ''), ui('call'), c.phone));
+  if (c.whatsapp) cells.push(cellA('https://wa.me/' + encodeURIComponent(c.whatsapp), ui('whatsapp'), 'wa.me/' + c.whatsapp, true));
+  if (c.email) cells.push(cellA('mailto:' + c.email, ui('mail'), c.email));
+  if (c.instagram) cells.push(cellA('https://www.instagram.com/' + encodeURIComponent(c.instagram) + '/', ui('instagram'), '@' + c.instagram, true));
+  if (c.linkedin) cells.push(cellA(c.linkedin, ui('linkedin'), c.linkedin.replace(/^https?:\/\/(www\.)?(linkedin\.com\/)?/, '').replace(/\/$/, ''), true));
+  if (c.website) cells.push(cellA(c.website, ui('website'), c.website.replace(/^https?:\/\//, '').replace(/\/$/, ''), true));
+  cells.push('<button type="button" class="cell" data-action="share"><span class="cl">' + esc(ui('share')) + '</span><span class="cv">' + esc(p.domain) + '</span></button>');
+  cells.push('<button type="button" class="cell" data-action="qr"><span class="cl">' + esc(ui('showQr')) + '</span><span class="cv">' + esc(p.domain) + '</span></button>');
+  return '<section class="contact bleed" aria-labelledby="ct-h"><h2 class="hl" id="ct-h">' + esc(t(c.headline)) + '</h2>' +
+    '<div class="c-side"><p class="c-sub">' + esc(t(c.sub)) + '</p><div class="c-qr"><img src="' + esc(QR_SRC) + '" alt="QR: ' + esc(p.domain) + '" loading="lazy"><p>' + esc(ui('scan')) + '</p></div></div>' +
+    '<div class="c-grid">' + cells.join('') + '</div>' +
+    '<div class="colo"><span>' + esc(p.name) + '</span><span>' + esc(t(c.title)) + '</span>' + (c.org ? '<span>' + esc(c.org) + '</span>' : '') +
+      (c.website ? '<a href="' + esc(c.website) + '" target="_blank" rel="noopener">' + esc(c.website.replace(/^https?:\/\//, '')) + '</a>' : '') + '<span>' + esc(p.domain) + '</span></div></section>';
+}
+
+function qrHTML(){
+  return '<div class="qr-top"><b id="qr-title">' + esc(C.person.name) + '</b><button type="button" class="qr-close">' + esc(t(L.close)) + ' &times;</button></div>' +
+    '<img class="qr-img" src="' + esc(QR_SRC) + '" alt="QR: ' + esc(C.person.url) + '"><p class="qr-cap">' + esc(ui('scan')) + '<span>' + esc(C.person.domain) + '</span></p>';
+}
+
+window.__CARDKIT = { C:C, L:L, t:t, ui:ui, esc:esc, pad2:pad2, slug:slug, eventActive:eventActive,
+  getLang:function(){ return lang; }, setLangRaw:function(l){ lang = l; }, LS_KEY:LS_KEY,
+  heroHTML:heroHTML, projectsHTML:projectsHTML, contactHTML:contactHTML, qrHTML:qrHTML };
+})();
+</script>
+<script>
+/* Teil 2: Verhalten. Flip, Raster, Textfit, vCard, Teilen, QR, Sprache. */
+(function(){
+'use strict';
+var K = window.__CARDKIT; if (!K) return;
+var C = K.C, t = K.t, ui = K.ui;
+var app = document.getElementById('app');
+var qrDlg = document.querySelector('dialog.qr');
+var toastEl = document.querySelector('.toast');
+var flipped = new Set();
+var mqDesk = window.matchMedia('(min-width:1100px)');
+var mqTab = window.matchMedia('(min-width:720px)');
+var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function render(){
+  document.documentElement.lang = K.getLang();
+  document.title = C.person.name + ' · ' + C.person.domain;
+  app.innerHTML = K.heroHTML() + K.projectsHTML() + K.contactHTML();
+  qrDlg.innerHTML = K.qrHTML();
+  app.querySelectorAll('.face a').forEach(function(a){
+    a.addEventListener('click', function(e){ e.stopPropagation(); });
+    a.addEventListener('keydown', function(e){ e.stopPropagation(); });
+  });
+  flipped.forEach(function(id){ var el = document.getElementById('card-' + id); if (el) setFlip(el, true, false); });
+  layout();
+  armDemo();
+}
+
+function setFlip(card, on, focus){
+  var front = card.querySelector('.face.front'), back = card.querySelector('.face.back');
+  var show = on ? back : front, hide = on ? front : back;
+  card.classList.toggle('is-flipped', on);
+  card.querySelectorAll('.flip-hit').forEach(function(b){ b.setAttribute('aria-pressed', String(on)); });
+  show.inert = false; show.removeAttribute('inert');
+  if (focus) show.querySelector('.flip-hit').focus({preventScroll:true});
+  hide.inert = true; hide.setAttribute('inert', '');
+  if (on) flipped.add(card.dataset.id); else flipped.delete(card.dataset.id);
+}
+
+/* Magazin-Raster: breite Karten 6 Spalten, normale 4; jede Zeile wird auf 12 aufgefuellt. */
+function pack(){
+  var mode = mqDesk.matches ? 'd' : (mqTab.matches ? 't' : 'm');
+  var cards = Array.prototype.slice.call(app.querySelectorAll('.card')), row = [], sum = 0;
+  function want(el){ var w = el.dataset.wide === '1'; return mode === 'd' ? (w ? 6 : 4) : (mode === 't' ? (w ? 12 : 6) : 12); }
+  function flush(){
+    if (!row.length) return;
+    var rest = 12 - sum;
+    while (rest > 0) { var min = row.reduce(function(a, r){ return r.span < a.span ? r : a; }, row[0]); min.span += 1; rest -= 1; }
+    row.forEach(function(r){
+      r.el.style.gridColumn = 'span ' + r.span;
+      r.el.querySelector('.b-body').classList.toggle('two', (mode === 'd' && r.span >= 6) || (mode === 't' && r.span === 12));
+    });
+    row = []; sum = 0;
+  }
+  cards.forEach(function(el){ var s = want(el); if (sum + s > 12) flush(); row.push({el:el, span:s}); sum += s; if (sum === 12) flush(); });
+  flush();
+}
+
+function textWidth(el){ var r = document.createRange(); r.selectNodeContents(el); return r.getBoundingClientRect().width; }
+function fitTo(el, avail, max){ el.style.fontSize = '100px'; var w = textWidth(el); if (!w) return; el.style.fontSize = Math.min(max, Math.floor(100 * avail / w * 0.99 * 10) / 10) + 'px'; }
+function fitName(){
+  var h = app.querySelector('.name'); if (!h) return;
+  var avail = h.clientWidth, line = h.querySelector('.fitline'), nls = h.querySelectorAll('.nl');
+  if (mqDesk.matches) { nls.forEach(function(n){ n.style.fontSize = ''; }); fitTo(line, avail, 280); }
+  else { line.style.fontSize = ''; nls.forEach(function(n){ fitTo(n, avail, 220); }); }
+  var ev = app.querySelector('.ev-name');
+  if (ev) {
+    ev.style.fontSize = '';
+    var cs = getComputedStyle(ev), base = parseFloat(cs.fontSize);
+    fitTo(ev, ev.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), mqDesk.matches ? base : 64);
+  }
+}
+/* Riesige Woerter duerfen nie aus ihrem Kasten laufen: notfalls verkleinern. */
+function shrink(){
+  app.querySelectorAll('.c-name, .hl, .inv .cta, .c-tag, .hero-intro .lead, .cell .cl, .plate-type span').forEach(function(el){
+    el.style.fontSize = '';
+    var fs = parseFloat(getComputedStyle(el).fontSize), n = 0;
+    while (el.scrollWidth > el.clientWidth + 1 && fs > 14 && n++ < 80) { fs -= 1.5; el.style.fontSize = fs + 'px'; }
+  });
+}
+function fillLast(){
+  var g = app.querySelector('.c-grid'); if (!g) return;
+  var cells = Array.prototype.slice.call(g.children); cells.forEach(function(c){ c.style.gridColumn = ''; });
+  var last = cells[cells.length - 1]; if (!last) return;
+  var cols = getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length;
+  var gr = g.getBoundingClientRect(), lr = last.getBoundingClientRect();
+  var rest = Math.round((gr.right - lr.right) / (gr.width / cols));
+  if (rest > 0) last.style.gridColumn = 'span ' + (1 + rest);
+}
+function layout(){ pack(); fitName(); shrink(); fillLast(); turnCards(); }
+var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(layout, 120); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+window.addEventListener('load', layout);
+
+/* vCard 3.0 */
+function vEsc(s){ return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;'); }
+function titleCase(s){ return String(s).toLowerCase().replace(/(^|[\s-])(\S)/g, function(m, a, b){ return a + b.toUpperCase(); }); }
+function vcard(){
+  var p = C.person, c = C.contact || {}, parts = p.name.trim().split(/\s+/);
+  var fam = parts.length > 1 ? parts[parts.length - 1] : parts[0], giv = parts.length > 1 ? parts[0] : '', mid = parts.slice(1, -1).join(' ');
+  var out = ['BEGIN:VCARD', 'VERSION:3.0', 'N:' + vEsc(fam) + ';' + vEsc(giv) + ';' + vEsc(mid) + ';;', 'FN:' + vEsc(p.name)];
+  if (c.org) out.push('ORG:' + vEsc(c.org));
+  if (c.title) out.push('TITLE:' + vEsc(t(c.title)));
+  if (c.email) out.push('EMAIL;TYPE=INTERNET,PREF:' + c.email);
+  if (c.phone) out.push('TEL;TYPE=CELL,VOICE:' + c.phone);
+  if (p.url) out.push('URL:' + p.url);
+  if (c.website) out.push('URL:' + c.website);
+  if (c.instagram) { var ig = 'https://www.instagram.com/' + c.instagram + '/'; out.push('URL;TYPE=Instagram:' + ig); out.push('X-SOCIALPROFILE;TYPE=instagram:' + ig); }
+  if (c.linkedin) out.push('URL;TYPE=LinkedIn:' + c.linkedin);
+  var ev = C.event, note = p.domain;
+  if (K.eventActive()) note = t(K.L.metAt) + ' ' + titleCase(ev.name) + (ev.until ? ' ' + ev.until.slice(0, 4) : '');
+  out.push('NOTE:' + vEsc(note));
+  out.push('END:VCARD');
+  return out.join('\r\n') + '\r\n';
+}
+function saveVcf(){
+  try {
+    var blob = new Blob([vcard()], {type:'text/vcard;charset=utf-8'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = K.slug() + '.vcf';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+  } catch (e) { toast('vCard: ' + e.message); }
+}
+
+/* Teilen mit Fallback */
+function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(function(){ toastEl.classList.remove('on'); }, 2200); }
+function copyText(txt){
+  function fallback(){
+    var ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); toast(ui('copied'));
+  }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(function(){ toast(ui('copied')); }, fallback);
+  else fallback();
+}
+function share(){
+  var url = C.person.url || location.href;
+  if (navigator.share) navigator.share({title:C.person.name, text:t(C.person.role), url:url}).catch(function(e){ if (!e || e.name !== 'AbortError') copyText(url); });
+  else copyText(url);
+}
+
+/* QR-Vollbild */
+var lastFocus = null;
+function openQr(from){
+  lastFocus = from || document.activeElement;
+  if (typeof qrDlg.showModal === 'function') { if (!qrDlg.open) qrDlg.showModal(); } else qrDlg.setAttribute('open', '');
+  var b = qrDlg.querySelector('.qr-close'); if (b) b.focus();
+}
+function closeQr(){ if (typeof qrDlg.close === 'function') { if (qrDlg.open) qrDlg.close(); } else qrDlg.removeAttribute('open'); }
+qrDlg.addEventListener('click', closeQr);
+qrDlg.addEventListener('close', function(){ if (lastFocus && lastFocus.isConnected) lastFocus.focus({preventScroll:true}); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && qrDlg.hasAttribute('open')) closeQr(); });
+
+/* Sprache */
+function setLang(l){
+  if (l === K.getLang()) return;
+  K.setLangRaw(l);
+  try { localStorage.setItem(K.LS_KEY, l); } catch (e) {}
+  try { var u = new URL(location.href); if (u.searchParams.has('lang')) { u.searchParams.delete('lang'); history.replaceState(null, '', u.href); } } catch (e) {}
+  var y = window.scrollY; render(); window.scrollTo(0, y);
+  var btn = app.querySelector('[data-lang="' + l + '"]'); if (btn) btn.focus({preventScroll:true});
+}
+
+/* Abstand fuer Spruenge: Hoehe der klebenden Kopfleiste + Luft */
+function topOffset(){ var h = app.querySelector('.top'); return (h ? h.offsetHeight : 0) + 12; }
+function goTo(id){
+  var card = document.getElementById('card-' + id); if (!card) return;
+  window.scrollTo({top:card.getBoundingClientRect().top + window.scrollY - topOffset(), behavior:mqReduce.matches ? 'auto' : 'smooth'});
+  var b = card.querySelector(card.classList.contains('is-flipped') ? '.back .flip-hit' : '.front .flip-hit');
+  if (b) b.focus({preventScroll:true});
+}
+
+app.addEventListener('click', function(e){
+  if (Date.now() - swipedAt < 450) { e.preventDefault(); return; }   /* Klick direkt nach einem Wisch nicht als Flip werten */
+  var hit = e.target.closest('.flip-hit');
+  if (hit) {
+    var card = hit.closest('.card');
+    userFlipped = true; card.classList.remove('peek'); if (card.dataset.id === demoId) demoId = null;
+    setFlip(card, !card.classList.contains('is-flipped'), true); return;
+  }
+  var lb = e.target.closest('[data-lang]'); if (lb) { setLang(lb.dataset.lang); return; }
+  var act = e.target.closest('[data-action]');
+  if (act) { var a = act.dataset.action; if (a === 'save') saveVcf(); else if (a === 'share') share(); else if (a === 'qr') openQr(act); return; }
+  var go = e.target.closest('[data-go]'); if (go) goTo(go.dataset.go);
+});
+
+/* Flip-Hinweis: Beim ersten Scrollen dreht die erste sichtbare Karte (DEMO_FULL) einmal ganz um und zurueck.
+   Endet, sobald jemand selbst eine Karte dreht. Nicht bei reduzierter Bewegung. Das Eindrehen macht turnCards(). */
+var DEMO_FULL = 1, demoed = new Set(), demoQueue = [], demoBusy = false, demoCount = 0, demoId = null, userFlipped = false, io = null;
+function armDemo(){
+  if (io) io.disconnect();
+  if (userFlipped || mqReduce.matches || !('IntersectionObserver' in window)) return;
+  io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var id = en.target.dataset.id;
+      if (!en.isIntersecting || demoed.has(id)) return;
+      demoed.add(id); io.unobserve(en.target); demoQueue.push(id); runDemo();
+    });
+  }, {threshold:0.55});
+  app.querySelectorAll('.card').forEach(function(c){ if (!demoed.has(c.dataset.id)) io.observe(c); });
+}
+function runDemo(){
+  if (userFlipped) { demoQueue = []; return; }
+  if (demoBusy || !demoQueue.length) return;
+  var id = demoQueue.shift(), card = document.getElementById('card-' + id);
+  if (!card || card.classList.contains('is-flipped')) { runDemo(); return; }
+  demoBusy = true;
+  function done(){ demoBusy = false; setTimeout(runDemo, 150); }
+  if (demoCount++ < DEMO_FULL) {
+    demoId = id; setFlip(card, true, false);
+    setTimeout(function(){
+      if (demoId === id) { var el = document.getElementById('card-' + id); if (el) setFlip(el, false, false); demoId = null; }
+      setTimeout(done, 650);
+    }, 1700);
+  } else { if (io) io.disconnect(); demoQueue = []; demoBusy = false; }
+}
+
+/* Eindrehen beim Scrollen: Jede Karte kommt mit TURN_MAX Grad von unten ins Bild und dreht sich flach,
+   bis ihre Oberkante die Bildschirmmitte erreicht. An die Scrollposition gekoppelt, also bei jedem Scrollen
+   (auch zurueck). Smoothstep-Kurve: bleibt am Anfang laenger schraeg. Position ueber offsetTop (ungedreht),
+   damit der Winkel nicht auf sich selbst zurueckwirkt. */
+var TURN_MAX = 65, turnRaf = 0;
+function turnCards(){
+  turnRaf = 0;
+  var cards = app.querySelectorAll('.card');
+  if (mqReduce.matches) { cards.forEach(function(c){ c.style.transform = ''; }); return; }
+  var vh = window.innerHeight, sy = window.scrollY;
+  cards.forEach(function(c){
+    if (c.classList.contains('swiping') || c.classList.contains('fly')) return;
+    var top = c.offsetTop - sy;
+    var p = Math.min(1, Math.max(0, (vh - top) / (vh * 0.5)));
+    var a = (1 - p * p * (3 - 2 * p)) * TURN_MAX;
+    c.style.transform = a > 0.3 ? 'perspective(1400px) rotateY(' + a.toFixed(2) + 'deg)' : '';
+  });
+}
+window.addEventListener('scroll', function(){ if (!turnRaf) turnRaf = requestAnimationFrame(turnCards); }, {passive:true});
+
+/* Wisch-zum-Teilen: Karte seitlich wegwischen -> Teilen-Menue (AirDrop, Messenger) mit Link direkt zu dieser Karte.
+   touch-action:pan-y laesst senkrechtes Scrollen beim Browser. Safari oeffnet navigator.share nur aus einer echten
+   Nutzergeste: bei Touch deshalb aus touchend (pointerup zaehlt dort nicht), bei Maus aus pointerup.
+   Lehnt der Browser trotzdem ab, gleitet unten ein Knopf "Teilen: <Karte>" herein; ein Tipp darauf teilt sicher.
+   Ohne Web Share: Link kopieren. */
+var SW = null, swipedAt = 0, promptEl = null;
+function cardUrl(card){ return String(C.person.url || location.origin).replace(/\/$/, '') + '/#' + card.dataset.id; }
+function cardData(card){ return C.cards.filter(function(x){ return x.id === card.dataset.id; })[0] || {}; }
+function hidePrompt(){ if (promptEl) promptEl.classList.remove('on'); }
+function sharePrompt(card){
+  if (!promptEl) {
+    promptEl = document.createElement('button'); promptEl.type = 'button'; promptEl.className = 'share-prompt'; document.body.appendChild(promptEl);
+    promptEl.addEventListener('click', function(){ var c = promptEl._card; hidePrompt(); if (c) shareCard(c, true); });
+  }
+  promptEl._card = card; promptEl.textContent = ui('share') + ': ' + (cardData(card).short || cardData(card).name || '') + ' ↗';
+  promptEl.classList.add('on'); clearTimeout(promptEl._t); promptEl._t = setTimeout(hidePrompt, 6000);
+}
+function shareCard(card, fromTap){
+  var c = cardData(card), url = cardUrl(card);
+  if (!navigator.share) { copyText(url); return; }
+  function fail(err){ if (err && err.name === 'AbortError') return; if (fromTap) copyText(url); else sharePrompt(card); }
+  try { navigator.share({ title: (c.name || '') + ' · ' + C.person.name, text: t(c.tagline) || t(c.kicker) || '', url: url }).catch(fail); }
+  catch (err) { fail(err); }
+}
+app.addEventListener('pointerdown', function(e){
+  if (e.pointerType === 'mouse' && e.button !== 0) return;
+  var card = e.target.closest('.card'); if (!card || e.target.closest('iframe')) return;
+  SW = { card: card, id: e.pointerId, type: e.pointerType, x0: e.clientX, y0: e.clientY, dx: 0, active: false, t0: Date.now() };
+});
+app.addEventListener('pointermove', function(e){
+  if (!SW || e.pointerId !== SW.id) return;
+  var dx = e.clientX - SW.x0, dy = e.clientY - SW.y0;
+  if (!SW.active) {
+    if (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.3) { if (Math.abs(dy) > 12) SW = null; return; }
+    SW.active = true; SW.t0 = Date.now(); SW.card.classList.add('swiping');
+    try { SW.card.setPointerCapture(e.pointerId); } catch (err) {}
+  }
+  SW.dx = dx; SW.card.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx * 0.03).toFixed(2) + 'deg)';
+});
+function endSwipe(e){
+  if (!SW || (e && e.pointerId !== SW.id)) return;
+  var s = SW; SW = null; if (!s.active) return;
+  swipedAt = Date.now();
+  var card = s.card, w = card.offsetWidth || 1, v = Math.abs(s.dx) / Math.max(1, Date.now() - s.t0);
+  card.classList.remove('swiping'); card.classList.add('fly');
+  if (Math.abs(s.dx) > w * 0.28 || v > 0.6) {
+    var dir = s.dx > 0 ? 1 : -1;
+    shareCard(card);   /* nicht auf das Teilen-Menue warten: manche Browser loesen das Promise nie auf, die Karte bliebe weg */
+    card.style.transform = 'translateX(' + dir * 115 + 'vw) rotate(' + dir * 8 + 'deg)'; card.style.opacity = '0';
+    setTimeout(function(){
+      card.style.opacity = ''; card.style.transform = 'translateX(0)';
+      setTimeout(function(){ card.classList.remove('fly'); card.style.transform = ''; turnCards(); }, 360);
+    }, 700);
+  } else {
+    card.style.transform = '';
+    setTimeout(function(){ card.classList.remove('fly'); turnCards(); }, 360);
+  }
+}
+app.addEventListener('pointerup', function(e){ if (e.pointerType !== 'touch') endSwipe(e); });   /* Touch endet in touchend, s. u. */
+app.addEventListener('pointercancel', endSwipe);
+app.addEventListener('touchend', function(){ if (SW && SW.type === 'touch') endSwipe(null); }, { capture: true, passive: true });
+app.addEventListener('touchcancel', function(){ if (SW && SW.type === 'touch') endSwipe(null); }, { capture: true, passive: true });
+
+window.__vcard = vcard;
+render();
+
+/* Direktlink auf eine Karte (#<id>, z. B. aus Wisch-zum-Teilen): dorthin springen; der Flip-Hinweis dreht dann genau diese Karte. */
+(function(){
+  var id = decodeURIComponent((location.hash || '').slice(1));
+  if (!id || !document.getElementById('card-' + id)) return;
+  function go(){ var el = document.getElementById('card-' + id); if (el) { window.scrollTo(0, el.offsetTop - topOffset()); turnCards(); } }
+  setTimeout(go, 60);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(go, 40); });
+})();
+})();
+</script>
+</body>
+</html>
