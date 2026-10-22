@@ -52,6 +52,9 @@ fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(path.join(dist, 'assets'), { recursive: true });
 fs.writeFileSync(path.join(dist, 'index.html'), html);
 fs.copyFileSync(path.join(root, 'content.js'), path.join(dist, 'content.js'));
+// GitHub Pages: Adresse der Seite und kein Jekyll
+fs.writeFileSync(path.join(dist, 'CNAME'), p.domain + '\n');
+fs.writeFileSync(path.join(dist, '.nojekyll'), '');
 
 // Nur Dateien aus assets/ kopieren, die die Seite wirklich verwendet
 const flat = JSON.stringify(card);
