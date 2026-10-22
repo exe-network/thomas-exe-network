@@ -27,6 +27,7 @@ Das Hosting gehört exe. Thomas braucht dafür keine Zugänge und keine Passwör
 - Nur veröffentlichen, was Thomas veröffentlichen will. Telefon, Mail und Adresse sind seine Entscheidung. Namen oder Fotos anderer Menschen nur mit deren Zustimmung.
 - Jeder Text gibt es auf Englisch **und** Deutsch (`{ en: "...", de: "..." }`).
 - Keine Passwörter, Zugangsdaten oder Schlüssel in Dateien schreiben, nie.
+- **Dieses Repo ist öffentlich.** Alles darin kann jeder lesen, auch die Historie. Keine privaten Notizen, Verträge, Rechnungen, Adressen oder Telefonnummern ablegen, die nicht auf die Karte sollen. Handy-Fotos können Standortdaten enthalten: Bilder vor dem Einfügen verkleinert neu speichern (das entfernt sie meist) und Thomas darauf hinweisen.
 
 **Schreibstil**
 - "exe" immer klein: exe, exe.network, exe.ist. Nie "Exe" oder "EXE".
